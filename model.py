@@ -1,10 +1,24 @@
 import pandas as pd
-# import numpy as np
-# import matplotlib.pyplot as plt
-
+import pickle
+from sklearn.linear_model import LinearRegression
 
 data = pd.read_csv('flaskmodel/Salary_Data.csv')
 
-from sklearn.linear_model import LinearRegression
+feature = ['YearsExperience']
+target = 'Salary'
+x = data[feature]
+y = data[target]
 
-print(data)
+LReg = LinearRegression()
+LReg.fit(x, y)
+
+pickle.dump(LReg, open('model.pkl', 'wb'))
+
+model = pickle.load(open('model.pkl', 'rb'))
+
+print(model)
+# yoe = int(input("Enter the year of Experience"))
+# input = [[yoe]]
+# prediction = LReg.predict(input)
+
+# print(prediction)
