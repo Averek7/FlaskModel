@@ -1,6 +1,9 @@
 import pandas as pd
 import pickle
+import warnings
 from sklearn.linear_model import LinearRegression
+
+warnings.filterwarnings("ignore", category=DeprecationWarning)
 
 data = pd.read_csv('flaskmodel/Salary_Data.csv')
 
@@ -17,8 +20,3 @@ pickle.dump(LReg, open('model.pkl', 'wb'))
 model = pickle.load(open('model.pkl', 'rb'))
 
 print(model)
-# yoe = int(input("Enter the year of Experience"))
-# input = [[yoe]]
-# prediction = LReg.predict(input)
-
-# print(prediction)

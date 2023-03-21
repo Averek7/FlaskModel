@@ -1,39 +1,27 @@
+import pickle
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
+from sklearn.linear_model import LogisticRegression
+from sklearn.model_selection import train_test_split
 
+diabetes = pd.read_csv('diabetes.csv')
+data = np.array(diabetes)
 
-diabetes = pd.read_csv('./diabetes.csv')
-
-
-features = ['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age']
+features = ['BloodPressure', 'BMI', 'Age']
 target = 'Outcome'
 
-# Split the data into features and target variable
 x = diabetes[features]
 y = diabetes[target]
 
-from sklearn.linear_model import LogisticRegression
+X_train, X_test, y_train, y_test = train_test_split(
+    x, y, test_size=0.3, random_state=42)
 
 log_reg = LogisticRegression()
-log_reg.fit(x, y)
+log_reg.fit(X_train, y_train)
 
 
-pregnancies = int(input('Enter number of pregnancies: '))
-glucose = int(input('Enter glucose level: '))
-bloodPressure = int(input('Enter blood pressure: '))
-skinThickness = int(input('Enter skin thickness: '))
-insulin = int(input('Enter insulin level: '))
-bmi = float(input('Enter BMI: '))
-dpf = float(input('Enter diabetes pedigree function: '))
-age = int(input('Enter age: '))
+pickle.dump(log_reg, open('model2.pkl', 'wb'))
 
+model = pickle.load(open('model2.pkl', 'rb'))
 
-input = [[pregnancies, glucose, bloodPressure, skinThickness, insulin, bmi, dpf, age]]
-prediction = log_reg.predict(input)
-
-
-if prediction[0] == 0:
-    print('=> The person is not likely to have diabetes :)')
-else:
-    print('=> The person is likely to have diabetes :(')
+print(model)

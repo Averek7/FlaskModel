@@ -1,52 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<link rel="stylesheet" href="index.css">
-<body>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@600&display=swap");
+      body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: linear-gradient(45deg, greenyellow, dodgerblue);
+        font-family: "Sansita Swashed", cursive;
+      }
+      .center {
+        position: relative;
+        padding: 50px 50px;
+        background: #fff;
+        border-radius: 10px;
+      }
+      .center h1 {
+        font-size: 2em;
+        border-left: 5px solid dodgerblue;
+        padding: 10px;
+        color: #000;
+        letter-spacing: 5px;
+        margin-bottom: 40px;
+        font-weight: bold;
+        padding-left: 10px;
+      }
+      .center .inputbox {
+        position: relative;
+        width: 300px;
+        height: 50px;
+        margin-bottom: 25px;
+      }
+      .center .inputbox input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        border: 2px solid #000;
+        outline: none;
+        background: none;
+        padding: 10px;
+        border-radius: 10px;
+        font-size: 1.2em;
+      }
+      .center .inputbox:last-child {
+        margin-bottom: 0;
+      }
+      .center .inputbox span {
+        position: absolute;
+        top: 14px;
+        left: 20px;
+        font-size: 1em;
+        transition: 0.6s;
+        font-family: sans-serif;
+      }
+      .center .inputbox input:focus ~ span,
+      .center .inputbox input:valid ~ span {
+        transform: translateX(-13px) translateY(-35px);
+        font-size: 1em;
+      }
+      .center .inputbox [type="button"] {
+        width: 50%;
+        background: dodgerblue;
+        color: #fff;
+        border: #fff;
+      }
+      .center .inputbox:hover [type="button"] {
+        background: linear-gradient(45deg, greenyellow, dodgerblue);
+      }
+      button {
+        padding: 10px;
+        border-radius: 12px;
+      }
+    </style>
+  </head>
+  <body>
     <div class="center">
-        <h1>Diabetes Prediction</h1>
-        <form method="POST">
-          <div class="inputbox">
-            <input type="text" required="required">
-            <span>Enter number of pregnancies:</span>
-          </div>
-          <div class="inputbox">
-            <input type="text" required="required">
-            <span>Enter glucose level:</span>
-          </div>
-          <div class="inputbox">
-            <input type="text" required="required">
-            <span>Enter blood pressure:</span>
-          </div>
-          <div class="inputbox">
-            <input type="text" required="required">
-            <span>Enter skin thickness:</span>
-          </div>
-          <div class="inputbox">
-            <input type="text" required="required">
-            <span>Enter insulin level:</span>
-          </div>
-          <div class="inputbox">
-            <input type="text" required="required">
-            <span>Enter BMI:</span>
-          </div>
-          <div class="inputbox">
-            <input type="text" required="required">
-            <span>Enter diabetes pedigree function:</span>
-          </div>
-          <div class="inputbox">
-            <input type="text" required="required">
-            <span>Enter age: </span>
-          </div>
-          <div class="inputbox">
-            <input type="button" value="submit">
-          </div>
-        </form>
-      </div> 
-</body>
+      <h1>Diabetes Prediction</h1>
+      <form action="/pd" method="POST">
+        <!-- <div class="inputbox">
+          <input type="number" name="pregnancies" />
+          <span>Enter number of pregnancies:</span>
+        </div> -->
+        <!-- <div class="inputbox">
+          <input type="number" name="" />
+          <span>Enter glucose level:</span>
+        </div> -->
+        <div class="inputbox">
+          <input type="number" name="blood_pressure" />
+          <span>Enter blood pressure:</span>
+        </div>
+        <!-- <div class="inputbox">
+          <input type="number" name="" />
+          <span>Enter skin thickness:</span>
+        </div> -->
+        <!-- <div class="inputbox">
+          <input type="number" name="" />
+          <span>Enter insulin level:</span>
+        </div> -->
+        <div class="inputbox">
+          <input type="number" name="bmi" />
+          <span>Enter BMI:</span>
+        </div>
+        <!-- <div class="inputbox">
+          <input type="number" name="" />
+          <span>Enter diabetes pedigree function:</span>
+        </div> -->
+        <div class="inputbox">
+          <input type="number" name="age" />
+          <span>Enter age: </span>
+        </div>
+        <div class="inputbox">
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+      {% if output %}
+      <p style="color: #000; margin: 40px 0 0 10px">
+        <span>{{output}}</span>
+      </p>
+      {% endif %}
+    </div>
+  </body>
 </html>
