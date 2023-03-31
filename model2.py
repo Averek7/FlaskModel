@@ -5,7 +5,6 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 
 diabetes = pd.read_csv('diabetes.csv')
-data = np.array(diabetes)
 
 features = ['BloodPressure', 'BMI', 'Age']
 target = 'Outcome'
