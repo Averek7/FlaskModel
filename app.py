@@ -1,11 +1,21 @@
 import pickle
 import numpy as np
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, jsonify
+
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.metrics import accuracy_score
+
+vectorizer = CountVectorizer()
 
 app = Flask(__name__)
 
 model = pickle.load(open('./model.pkl', 'rb'))
 model2 = pickle.load(open('./model2.pkl', 'rb'))
+model3 = pickle.load(open('./model3.pkl', 'rb'))
+vectorizer = pickle.load(open('./vectorizer.pkl', 'rb'))
 
 
 @app.route('/')
@@ -24,9 +34,7 @@ def predict():
     ini_feature = [int(x) for x in request.form.values()]
     final_features = [np.array(ini_feature)]
     pred = model.predict(final_features)
-
     output = round(pred[0], 2)
-
     return render_template('index.html', output=output)
 
 
