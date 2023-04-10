@@ -8,7 +8,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 from flask import Flask, render_template, request, send_file
 
 nltk.download('stopwords')
-vect = pickle.load(open('../vec.pkl', 'rb'))
+vect = pickle.load(open('vec.pkl', 'rb'))
 
 app = Flask(__name__)
 
@@ -36,7 +36,7 @@ def predict():
 
         count = vect.transform(spam['clean'])
 
-        model = pickle.load(open('../model.pkl', 'rb'))
+        model = pickle.load(open('model.pkl', 'rb'))
 
         predictions = model.predict(count)
 
