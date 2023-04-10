@@ -9,7 +9,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 
 nltk.download('stopwords')
 
-spam = pd.read_csv('spam.csv', encoding="ISO-8859-1")
+spam = pd.read_csv('../spam.csv', encoding="ISO-8859-1")
 
 spam.drop(['Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4'], axis=1, inplace=True)
 spam.rename(columns={'v2': 'messages', 'v1': "label"}, inplace=True)
@@ -33,4 +33,4 @@ l_count.fit(x_train, y_train)
 
 # Saving model to disk
 pickle.dump(l_count, open('model.pkl', 'wb'))
-pickle.dump(count, open('vec.pkl', 'wb'))
+pickle.dump(count_vectorizer, open('vec.pkl', 'wb'))
