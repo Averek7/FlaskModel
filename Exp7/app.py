@@ -17,11 +17,9 @@ model2 = pickle.load(open('./model2.pkl', 'rb'))
 model3 = pickle.load(open('./model3.pkl', 'rb'))
 vectorizer = pickle.load(open('./vectorizer.pkl', 'rb'))
 
-
 @app.route('/')
 def hello():
     return render_template('index.html')
-
 
 @app.route('/pd')
 def world():
