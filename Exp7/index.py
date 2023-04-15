@@ -12,7 +12,7 @@ import pandas as pd
 import pickle
 
 
-df = pd.read_csv("spam.csv", encoding="latin1")
+df = pd.read_csv("../spam.csv", encoding="latin1")
 
 df.drop(columns=['Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4'], inplace=True)
 
@@ -76,4 +76,4 @@ y_pred2 = mnb.predict(X_test)
 print(accuracy_score(y_test, y_pred2))
 
 pickle.dump(tfidf, open('vectorizer.pkl', 'wb'))
-pickle.dump(mnb, open('model.pkl', 'wb'))
+pickle.dump(mnb, open('model3.pkl', 'wb'))
