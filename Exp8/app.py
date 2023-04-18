@@ -27,22 +27,22 @@ def predict():
             return render_template('home.html', error_message='Please upload a file')
 
         try:
-            df = pd.read_csv(uploaded_file, encoding="ISO-8859-1")
+            spam = pd.read_csv(uploaded_file, encoding="ISO-8859-1")
         except:
             return render_template('home.html', error_message='Invalid file format. Please upload a CSV file')
 
-        df['clean'] = df['v2'].apply(lambda x: ' '.join(
+        spam['clean'] = spam['v2'].apply(lambda x: ' '.join(
             [word for word in x.split() if word.lower() not in set(stopwords.words('english'))]))
 
-        count = vect.transform(df['clean'])
+        count = vect.transform(spam['clean'])
 
-        model = pickle.load(open('mdel.pkl', 'rb'))
+        model = pickle.load(open('model.pkl', 'rb'))
 
         predictions = model.predict(count)
 
-        df['Prediction'] = predictions
+        spam['Prediction'] = predictions
 
-        df.to_csv('predictions.csv', index=False)
+        spam.to_csv('predictions.csv', index=False)
 
         return send_file('predictions.csv', as_attachment=True)
 
