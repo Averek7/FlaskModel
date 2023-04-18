@@ -19,7 +19,7 @@ api = tweepy.API(auth, wait_on_rate_limit=True)
 
 public_tweets = api.home_timeline()
 
-colums = ['Time', 'User', 'Tweet']
+colums = ['Tweet']
 data = []
 
 
@@ -28,9 +28,9 @@ user = api.get_user(screen_name=handle)
 
 for tweet in public_tweets:
 
-    data.append([tweet.created_at, tweet.user.screen_name, tweet.text])
+    data.append([tweet.text])
 
 df = pd.DataFrame(data, columns=colums)
 
-df.to_csv('tweets.csv')
+df.to_csv('mytweets.csv')
 print(df)

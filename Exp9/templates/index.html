@@ -7,14 +7,14 @@
     <title>Spam Tweet</title>
   </head>
   <body>
-    <form action="{{ url_for('predict')}}" method="post">
-      <input type="text" name="tweet" id="tweet" />
+    <form
+      action="{{url_for('predict')}}"
+      method="post"
+      enctype="multipart/form-data"
+    >
+      <h6>Upload a CSV file:</h6>
+      <input type="file" name="file" class="if" />
       <button class="" type="submit">Predict</button>
     </form>
-    {% if output %}
-    <p style="color: #000; margin: 40px 0 0 10px">
-      <span>{{output}}</span>
-    </p>
-    {% endif %}
   </body>
 </html>
