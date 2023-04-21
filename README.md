@@ -2,11 +2,15 @@
 => Lab assignment - 7,8 and 9
 
 # By UI20CS04 and UI20CS12
-=> Alok Kumar and Avanish Singh
+🕴 Alok Kumar and Avanish Singh
+
+# To run the model 
+
+`flask run`
 
 # Lab 7
 
-Language - Python and flask
+`Language - Python and flask`
 
 To embed a developed machine learning model into a web page for logistic regression using Python and Flask, we would need to follow these steps:
 1. Train our logistic regression model using Python, and save the model as a file. We can use libraries such as scikit-learn to build and train our model.
@@ -21,7 +25,7 @@ With these steps, we have embed a developed machine learning model into a web pa
 
 # Lab - 8
 
-Language - Python and flask
+`Language - Python and flask`
 
 To deploy a machine learning model on a web interface using Python and Flask, where users can test their data, follow these steps:
 1. Build and train our machine learning model using Python, and save the trained model to a file. We can use libraries such as scikit-learn or TensorFlow to build and train your model.
@@ -30,14 +34,14 @@ To deploy a machine learning model on a web interface using Python and Flask, wh
 4. Load the trained machine learning model file into your Flask application using libraries such as pickle or joblib.
 5. Use the Flask endpoint to pass the input data to the model and get the predicted output. You can use the predict method of the trained model to get the output.
 6. Display the predicted output on the web page using HTML, CSS, and JavaScript. You can use a template engine such as Jinja2 to render the predicted output in the web page.
-7. If the user is testing multiple data items, you can allow them to upload a CSV or Zip file, and use the pandas library in Python to read the data file and pass it to the model for prediction.
+7. If the user is testing multiple data items, we can allow them to upload a CSV or Zip file, and use the pandas library in Python to read the data file and pass it to the model for prediction.
 8. Deploy your Flask web application to a web server so that it can be accessed by users from anywhere.
 
 With these steps, we can deploy a machine learning model on a web interface using Python and Flask, where users can test their data by either testing a single data item or uploading a file with multiple data items.
 
 # Lab - 9
 
-Language - Python and flask 
+`Language - Python and flask`
 
 To deploy a machine learning model on the web for real-time sentiment analysis of Twitter data using Python and Flask, follow these steps:
 
@@ -52,4 +56,4 @@ To deploy a machine learning model on the web for real-time sentiment analysis o
 9. Display the predicted sentiment on the web page using HTML, CSS, and JavaScript.
 10. Deploy your Flask web application to a web server so that it can be accessed by users from anywhere.
 
-With these steps, you can deploy a machine learning model on the web for real-time sentiment analysis of Twitter data using Python and Flask.
+With these steps, we can deploy a machine learning model on the web for real-time sentiment analysis of Twitter data using Python and Flask.
