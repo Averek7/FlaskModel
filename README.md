@@ -2,8 +2,9 @@
 => Lab assignment - 7,8 and 9
 
 # By UI20CS04 and UI20CS12
-🕴 Alok Kumar and Avanish Singh
-
+```sh
+🕴 ALOK KUMAR and AVANISH SINGH
+```
 # To run the model 
 
 `flask run`
